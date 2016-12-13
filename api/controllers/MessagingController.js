@@ -8,7 +8,8 @@
 var account_sid = sails.config.twilio.account_sid;
 var auth_token = sails.config.twilio.auth_token;
 
-var client = require('twilio')(account_sid, auth_token);
+var twilio = require('twilio');
+var client = twilio(account_sid, auth_token);
 
 module.exports = {
     outbound: function(req, res) {
