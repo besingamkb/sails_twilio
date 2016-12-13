@@ -25,7 +25,7 @@ module.exports = {
             });
         }
 
-        var message = client.messages.create({
+        var message = client.sendSms({
             to: req.param('to'),
             from: sails.config.twilio.number,
             body: req.param('message')
@@ -55,6 +55,7 @@ module.exports = {
     },
 
     inbound: function(req, res) {
+        var response = new twilio.TwimlResponse();
         sails.log(req.allParams());
 
         Communications.create({
@@ -70,6 +71,11 @@ module.exports = {
             sails.log(err);
             return res.ok();
         });
+
+        res.writeHead(200, {
+            'Content-Type':'text/xml'
+        });
+        res.end(response.toString());
     },
 
     fallback: function(req, res) {
