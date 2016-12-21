@@ -1,7 +1,12 @@
 <!-- display call status in this paragraph tag -->
     <p id="status"></p>
     <p><input type="text" id="number"></p>
-    <p><input type="button" value="call" id="call"/> <input type="button" value="hangup" id="hangup" /></p>
+    <p><input type="button" value="Call" id="outbound_call"/> <input type="button" value="hangup" id="hangup" /></p>
+
+    <div id="incoming_div" style="display: none">
+        <p>Incoming call from: <span class="from"></span></p>
+        <p><input type="button" value="accept" id="incoming_accept"/> <input type="button" value="end call" id="incoming_endcall" /></p>
+    </div>
  
     <!-- include the Twilio Client JavaScript SDK -->
     <script src="//static.twilio.com/libs/twiliojs/1.1/twilio.min.js"></script>
