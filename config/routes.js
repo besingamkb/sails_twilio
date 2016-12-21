@@ -35,6 +35,7 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
+    '/webrtc': 'WebRTCController.index',
     '/twilio/messaging/outbound': 'MessagingController.outbound',
     '/twilio/messaging/inbound': 'MessagingController.inbound',
     '/twilio/messaging/fallback': 'MessagingController.fallback',
